@@ -82,7 +82,51 @@
             </div>
           </div>
         </div>
+        <div id="quiz-container" class="quiz-container" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="question" id="question-container">
+            <h3 id="question-text">
+              Pergunta 1: Com que frequência você verifica seu smartphone
+              durante o dia?
+            </h3>
+            <div class="options">
+              <button class="option-btn" data-value="0">
+                Nunca / Raramente
+              </button>
+              <button class="option-btn" data-value="1">Frequentemente</button>
+              <button class="option-btn" data-value="2">Sempre</button>
+            </div>
+          </div>
+          <div class="navigation">
+            <button id="prev-btn" class="btn-nav" disabled>Anterior</button>
+            <button id="next-btn" class="btn-nav">Próxima</button>
+          </div>
+        </div>
+        <form id="quiz-form" class="quiz-form" style="display: none">
+          <button type="submit" class="btn-nav">Finalizar</button>
+        </form>
+        <div class="quiz-media">
+          <img
+            src="https://source.unsplash.com/600x400/?smartphone,habit"
+            alt="Hábitos com smartphone"
+          />
+          <video width="600" height="400" controls>
+            <source src="videos/quiz-intro.mp4" type="video/mp4" />
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
+        </div>
       </section>
     </main>
+    <footer>
+      <p>&copy; 2025 Escalas Delete. Todos os direitos reservados.</p>
+      <div class="social-links">
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
