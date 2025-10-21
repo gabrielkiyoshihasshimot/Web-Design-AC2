@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre - Escalas Delete</title>
+    <!-- Commit 2: Adição de estilos e fontes externas -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>Escalas Delete</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="testes.html">Testes</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="praticas.html">Práticas</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="btn-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <section id="sobre" class="about-section">
+        <h2>Sobre o Projeto Escalas Delete</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Nossa Missão</h3>
+            <p>
+              O Escalas Delete é um projeto dedicado a promover o uso consciente
+              de tecnologias. Através de testes interativos, práticas reflexivas
+              e conteúdos educacionais, ajudamos indivíduos a equilibrar sua
+              vida digital e melhorar seu bem-estar geral.
+            </p>
+            <h3>O Livro Escalas Delete</h3>
+            <p>
+              Baseado no livro "Escalas Delete: Detox Digital", este site
+              oferece ferramentas práticas para avaliar e melhorar seus hábitos
+              digitais. O livro explora os impactos da dependência tecnológica
+              na saúde mental, produtividade e relacionamentos.
+            </p>
+            <h3>Nossos Valores</h3>
+            <ul>
+              <li>
+                <strong>Consciência:</strong> Promover reflexão sobre o uso de
+                tecnologia.
+              </li>
+              <li>
+                <strong>Equilíbrio:</strong> Encorajar hábitos saudáveis e
+                sustentáveis.
+              </li>
+              <li>
+                <strong>Educação:</strong> Fornecer conhecimento baseado em
+                evidências científicas.
+              </li>
+              <li>
+                <strong>Empatia:</strong> Apoiar usuários em sua jornada de
+                transformação digital.
+              </li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://source.unsplash.com/500x600/?book,technology"
+              alt="Livro Escalas Delete"
+            />
+          </div>
+        </div>
+        <div class="team">
+          <h3>Equipe</h3>
+          <div class="team-grid">
+            <div class="team-member">
+              <img
+                src="https://source.unsplash.com/150x150/?person,professional"
+                alt="Membro da equipe"
+              />
+              <h4>Dr. João Silva</h4>
+              <p>Psicólogo especialista em dependência digital</p>
+            </div>
+            <div class="team-member">
+              <img
+                src="https://source.unsplash.com/150x150/?woman,expert"
+                alt="Membro da equipe"
+              />
+              <h4>Maria Santos</h4>
+              <p>Educadora em saúde mental e bem-estar digital</p>
+            </div>
+            <div class="team-member">
+              <img
+                src="https://source.unsplash.com/150x150/?man,researcher"
+                alt="Membro da equipe"
+              />
+              <h4>Carlos Oliveira</h4>
+              <p>Pesquisador em comportamento humano e tecnologia</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-section">
+          <h3>Entre em Contato</h3>
+          <p>
+            Tem dúvidas ou sugestões? Entre em contato conosco para saber mais
+            sobre o projeto Escalas Delete.
+          </p>
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">Nome:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensagem:</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Enviar Mensagem</button>
+          </form>
+          <div class="contact-media">
+            <audio controls>
+              <source src="audios/intro.mp3" type="audio/mpeg" />
+              Seu navegador não suporta o elemento de áudio.
+            </audio>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Escalas Delete. Todos os direitos reservados.</p>
+      <div class="social-links">
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <p id="popup-message"></p>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+  </body>
+</html>

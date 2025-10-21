@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práticas e Reflexões - Escalas Delete</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>Escalas Delete</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="testes.html">Testes</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="#praticas">Práticas</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="btn-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </header>
+    <!-- Commit 3: Seção principal de práticas e desafios -->
+    <main>
+      <section id="praticas" class="practices-section">
+        <h2>Práticas e Reflexões para Hábitos Digitais Conscientes</h2>
+        <div class="practice-grid">
+          <div class="practice-item">
+            <i class="fas fa-clock"></i>
+            <h3>Desafio de 24 Horas</h3>
+            <p>
+              Desconecte-se completamente da tecnologia por um dia inteiro.
+              Reflita sobre como se sente.
+            </p>
+            <button
+              class="btn-practice"
+              onclick="showPopup('Desafio iniciado! Boa sorte!')"
+            >
+              Iniciar Desafio
+            </button>
+          </div>
+          <div class="practice-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>App Detox</h3>
+            <p>
+              Identifique e remova apps que consomem muito do seu tempo.
+              Substitua por atividades offline.
+            </p>
+            <button
+              class="btn-practice"
+              onclick="showPopup('Liste seus apps e comece a limpeza!')"
+            >
+              Começar
+            </button>
+          </div>
+          <div class="practice-item">
+            <i class="fas fa-brain"></i>
+            <h3>Mindfulness Digital</h3>
+            <p>
+              Pratique atenção plena enquanto usa dispositivos. Pare e respire
+              profundamente antes de cada interação.
+            </p>
+            <button
+              class="btn-practice"
+              onclick="showPopup('Respire fundo e comece conscientemente!')"
+            >
+              Praticar
+            </button>
+          </div>
+        </div>
+        <!-- Commit 4: Diário de reflexões e conteúdo multimídia -->
+        <div class="reflection-journal">
+          <h3>Diário de Reflexões</h3>
+          <textarea
+            id="reflection-text"
+            placeholder="Escreva suas reflexões sobre o uso de tecnologia hoje..."
+          ></textarea>
+          <button id="save-reflection" class="btn-primary">
+            Salvar Reflexão
+          </button>
+        </div>
+        <div class="practices-media">
+          <img
+            src="https://source.unsplash.com/400x300/?meditation,nature"
+            alt="Meditação na natureza"
+          />
+          <iframe
+            width="400"
+            height="225"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Vídeo de meditação"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Escalas Delete. Todos os direitos reservados.</p>
+      <div class="social-links">
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <p id="popup-message"></p>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+  </body>
+</html>
