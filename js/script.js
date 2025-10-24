@@ -1,5 +1,3 @@
-// Commit 1: Adiciona perguntas e estrutura base dos quizzes (celular, tecnologias, depressão, Spotify)
-
 const celularQuestions = [
   {
     question: "Com que frequência você usa o TC no seu dia a dia?",
@@ -448,8 +446,6 @@ const quizzes = {
   spotify: spotifyQuestions,
 };
 
-// Commit 2: Implementa lógica principal do quiz (exibição, navegação, progresso e cálculo de pontuação)
-
 let quizQuestions = [];
 
 let currentQuestionIndex = 0;
@@ -543,8 +539,6 @@ function calculateScore() {
   localStorage.setItem("quizScore", totalScore);
   localStorage.setItem("userAnswers", JSON.stringify(userAnswers));
 }
-
-// Commit 3: Adiciona recursos complementares (dark mode, formulários, animações, slides e interações de UI)
 
 function displayResults() {
   if (scoreElement && scoreFill && recommendationsElement) {
@@ -741,8 +735,6 @@ function showAllQuestions(questions) {
   submitBtn.textContent = "Finalizar";
   form.appendChild(submitBtn);
 }
-
-// Commit 4: Otimiza performance, adiciona melhorias visuais e corrige bugs menores (scroll, animações, responsividade e manipulação de eventos)
 
 document.addEventListener("DOMContentLoaded", function () {
   const quizButtons = document.querySelectorAll(".quiz-btn");
