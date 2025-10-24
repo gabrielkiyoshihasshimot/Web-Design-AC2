@@ -465,3 +465,97 @@ const quizzes = {
   depressao: depressaoQuestions,
   spotify: spotifyQuestions,
 };
+
+let quizQuestions = [];
+
+let currentQuestionIndex = 0;
+
+let userAnswers = [];
+
+let totalScore = 0;
+
+const questionContainer = document.getElementById("question-container");
+const questionText = document.getElementById("question-text");
+const optionsContainer = document.querySelector(".options");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const progressFill = document.getElementById("progress-fill");
+const scoreElement = document.getElementById("score");
+const scoreFill = document.getElementById("score-fill");
+const recommendationsElement = document.getElementById("recommendations");
+const reflectionText = document.getElementById("reflection-text");
+const saveReflectionBtn = document.getElementById("save-reflection");
+const contactForm = document.getElementById("contact-form");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+const popup = document.getElementById("popup");
+const popupMessage = document.getElementById("popup-message");
+const closeBtn = document.querySelector(".close-btn");
+
+function initQuiz() {
+  if (questionContainer && questionText && optionsContainer) {
+    showQuestion(currentQuestionIndex);
+    updateProgressBar();
+  }
+}
+
+function showQuestion(index) {
+  const question = quizQuestions[index];
+  questionText.textContent = question.question;
+
+  optionsContainer.innerHTML = "";
+  question.options.forEach((option, optionIndex) => {
+    const button = document.createElement("button");
+    button.className = "option-btn";
+    button.textContent = option;
+    button.dataset.value = question.values[optionIndex];
+    if (userAnswers[index] === question.values[optionIndex]) {
+      button.classList.add("selected");
+    }
+    button.addEventListener("click", () =>
+      selectOption(optionIndex, question.values[optionIndex])
+    );
+    optionsContainer.appendChild(button);
+  });
+
+  prevBtn.disabled = index === 0;
+  nextBtn.textContent =
+    index === quizQuestions.length - 1 ? "Finalizar" : "Próxima";
+}
+
+function selectOption(optionIndex, value) {
+  userAnswers[currentQuestionIndex] = value;
+  const buttons = optionsContainer.querySelectorAll(".option-btn");
+  buttons.forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === optionIndex);
+  });
+}
+
+function nextQuestion() {
+  if (currentQuestionIndex < quizQuestions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion(currentQuestionIndex);
+    updateProgressBar();
+  } else {
+    calculateScore();
+    window.location.href = "resultados.html";
+  }
+}
+
+function prevQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    showQuestion(currentQuestionIndex);
+    updateProgressBar();
+  }
+}
+
+function updateProgressBar() {
+  const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+  progressFill.style.width = `${progress}%`;
+}
+
+function calculateScore() {
+  totalScore = userAnswers.reduce((sum, answer) => sum + answer, 0);
+  localStorage.setItem("quizScore", totalScore);
+  localStorage.setItem("userAnswers", JSON.stringify(userAnswers));
+}
