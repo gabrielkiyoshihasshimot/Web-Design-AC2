@@ -1,110 +1,93 @@
+// Commit 1: Adiciona perguntas e estrutura base dos quizzes (celular, tecnologias, depressão, Spotify)
+
 const celularQuestions = [
   {
-    question: "Com que frequência você verifica seu smartphone durante o dia?",
+    question: "Com que frequência você usa o TC no seu dia a dia?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question: "Com que frequência você não consegue sair sem levar o TC?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo no celular diariamente?",
+      "Com que frequência quando esquece o TC costuma voltar para buscar?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
-    question: "Você sente ansiedade quando não tem acesso ao seu celular?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você usa o celular durante refeições?",
+    question: "Com que frequência você acessa a internet no TC?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você verifica notificações do celular imediatamente quando chegam?",
+      "Com que frequência você sente ansiedade quando percebe que está sem o TC?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo nas redes sociais via celular?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você se sente perdido sem seu celular?",
+      "Com que frequência você se sente triste ou depressivo quando está desconectado da internet ou das redes sociais no seu TC?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você usa o celular enquanto dirige ou caminha?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você prefere interações via celular às presenciais?",
+      "Com que frequência você sente nervosismo por não ter o TC por perto para se comunicar?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica pouco tempo a atividades offline por dia?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você tem dificuldade para dormir devido ao uso do celular?",
+      'Com que frequência você tem medo de sair sem o TC e, se passar mal na rua, não ter como pedir "socorro" imediato ou fazer contato com alguém de sua confiança?',
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você se sente sobrecarregado com mensagens no celular?",
+      "Com que frequência você mantém o TC sempre por perto mesmo em casa?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
-    question: "Você usa o celular como despertador?",
+    question: "Com que frequência você mantém o TC ligado 24 horas por dia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
-    question: "Com que frequência você passa muito tempo jogando no celular?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question:
-      "Você sente irritação quando alguém interrompe seu uso do celular?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você usa o celular em reuniões ou aulas?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você acha difícil deixar o celular de lado durante o dia?",
+    question: "Com que frequência você dorme com o TC ligado?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo navegando na internet via celular?",
+      "Com que frequência você acessa o TC mais de 30 vezes por dia para ver mensagens, emails, etc.?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você se sente ansioso ao pensar em perder ou quebrar seu celular?",
+      "Com que frequência você não se desliga do TC quando está com amigos ou família?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
-    question: "Com que frequência você usa o celular logo ao acordar?",
+    question:
+      "Com que frequência você sente solidão, quando não participa de redes sociais ou quando não está inserido em grupos que outros estão?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você insere na agenda do TC o número de um médico, psicólogo ou hospital com medo de passar mal na rua?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question: "Com que frequência você joga no TC?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
@@ -113,112 +96,115 @@ const celularQuestions = [
 const tecnologiasQuestions = [
   {
     question:
-      "Com que frequência você passa muito tempo em frente a telas diariamente?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente ansiedade quando não tem acesso à internet?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você usa tecnologias durante refeições?",
+      "Com que frequência você costuma usar as tecnologias CTCTO por mais de três horas ao longo do seu dia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica pouco tempo a atividades offline por dia?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você tem dificuldade para dormir devido ao uso de tecnologias?",
+      "Com que frequência você costuma usar o CTCTO por mais de quatro horas ao longo do seu dia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você se sente sobrecarregado com informações digitais?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você prefere interações online às presenciais?",
+      "Com que frequência, quando você deixa de usar o CTCTO, você costuma logo em seguida voltar a acessar?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo assistindo vídeos online?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você verifica notificações imediatamente quando chegam?",
+      "Com que frequência você costuma se sentir mais feliz quando usa o CTCTO no seu dia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você usa tecnologias enquanto trabalha ou estuda?",
+      "Com que frequência você costuma se sentir triste quando não pode acessar o CTCTO no seu dia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você sente irritação quando alguém interrompe seu uso de tecnologias?",
+      "Com que frequência você costuma sentir ansiedade quando percebe que está sem acesso às tecnologias CTCTO?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo nas redes sociais diariamente?",
+      "Com que frequência você costuma sentir algum tipo de desconforto físico, como aperto no peito, bolo na garganta, palpitação, falta de ar ou tontura quando percebe que está sem acesso ao СТСТО?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você acha difícil desconectar das tecnologias durante o fim de semana?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você usa tecnologias para procrastinar?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você se sente perdido sem acesso a tecnologias?",
+      "Com que frequência você costuma sentir medo quando percebe que está sem acesso ao CTCTO?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo jogando videogames ou apps?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você tem dores físicas devido ao uso prolongado de tecnologias?",
+      "Com que frequência você costuma sentir nervosismo quando percebe que está sem acesso ao CTCTO?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você usa tecnologias durante conversas presenciais?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente culpa por passar muito tempo com tecnologias?",
+      "Com que frequência você costuma se sentir rejeitado quando percebe que alguém leu e não respondeu de imediato as suas mensagens ou e-mails no CTCTO?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica pouco tempo a hobbies offline por semana?",
+      "Com que frequência você costuma usar o CTCTO para postar algo para ver a reação dos outros e, se for positiva, você se sente mais importante/valorizado?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você se sente desvalorizado/menos importante quando utiliza o CTCTO para postar algo e recebe uma reação negativa dos outros usuários?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma usar o CTCTO para evitar a sensação de estar só?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma consultar ou usar o CTCTO mesmo quando está com amigos ou com o seu par?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma consultar ou usar o CTCTO mesmo quando está no trabalho, em salas de aula ou em outros locais públicos?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma consultar ou usar o CTCTO mesmo quando está com a família?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência durante o seu dia você costuma checar as mensagens no seu CTCTO?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você deixa de fazer exercícios físicos ou qualquer outra atividade na sua vida real para ficar conectado no mundo virtual do CTCTO?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma ignorar as pessoas que estão ao seu lado no mundo real para ficar se correspondendo com pessoas no mundo virtual do CTCTO?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
@@ -226,115 +212,100 @@ const tecnologiasQuestions = [
 
 const depressaoQuestions = [
   {
-    question: "Você se sente isolado devido ao uso excessivo de tecnologias?",
+    question:
+      "Com que frequência você costuma se sentir muito triste ou deprimido?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question: "Com que frequência você costuma se sentir desanimado?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question: "Com que frequência você costuma sentir nervosismo ou ansiedade?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você compara sua vida com a dos outros nas redes sociais?",
+      "Com que frequência você costuma se sentir desvalorizado ou não importante?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você tem dificuldade para dormir devido ao uso de tecnologias à noite?",
+      "Com que frequência você costuma sentir perda de interesse nas atividades do cotidiano?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo online em detrimento de interações sociais presenciais?",
+      "Com que frequência você busca alguma tecnologia CTCTO para não se sentir solitário ou para tentar fazer amigos?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você sente ansiedade ao não receber likes ou comentários online?",
+      "Com que frequência você costuma prejudicar o seu sono para ficar no CTCTO?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question: "Com que frequência você costuma sentir vontade de morrer?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question: "Com que frequência você costuma pensar em tirar sua vida?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você se sente deprimido após usar tecnologias?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você evita sair de casa devido ao conforto das tecnologias?",
+      "Com que frequência você costuma buscar o CTCTO para descartar a ideia do suicídio ou para pesquisar sobre o tema?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica pouco tempo a atividades físicas por semana?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente falta de energia devido ao uso prolongado de telas?",
+      "Com que frequência você utiliza o CTCTO para reduzir seus sintomas ou sentimentos pessimistas ou negativos?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você usa tecnologias para escapar de problemas reais?",
+      "Com que frequência você costuma buscar fazer mais amigos no CTCTO do que na vida real?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você se sente culpado por não conseguir controlar o uso de tecnologias?",
+      "Com que frequência você costuma buscar o CTCTO para se sentir incluído em algum contexto social?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo sozinho com tecnologias por dia?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você tem pensamentos negativos após ver conteúdos online?",
+      "Com que frequência você costuma buscar o CTCTO para pesquisar sobre curiosidades, novos assuntos, ler jornais ou revistas?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você se sente sobrecarregado emocionalmente por notificações?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você prefere interações online porque se sente mais seguro?",
+      "Com que frequência você costuma buscar o CTCTO para mudar o seu estado de humor de negativo para positivo?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica pouco tempo a hobbies criativos offline?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente depressão ao pensar em desconectar das tecnologias?",
+      "Com que frequência você costuma deixar de praticar alguma atividade física ou de fazer programas ao ar livre para ficar no CTCTO?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você usa tecnologias para lidar com emoções negativas?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question:
-      "Você tem dificuldade para se concentrar devido ao uso de tecnologias?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você passa pouco tempo ao ar livre por dia?",
+      "Com que frequência você costuma buscar o CTCTO para encontrar alguma atividade de lazer ou alguma companhia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
@@ -343,110 +314,121 @@ const depressaoQuestions = [
 const spotifyQuestions = [
   {
     question:
-      "Com que frequência você passa muito tempo ouvindo música em apps como Spotify diariamente?",
+      "Com que frequência você costuma usar o Spotify/Aplicativos de Música Digital (AMD) no seu dia a dia?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você sente ansiedade quando não tem acesso à sua playlist favorita?",
+      "Com que frequência você costuma passar mais de 3 horas consecutivas escutando música no Spotify/AMD?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você usa música para escapar de emoções negativas?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você cria playlists para diferentes humores ou situações?",
+      "Com que frequência você costuma usar o Spotify/AMD durante a prática de exercícios físicos?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica muito tempo a descobrir novas músicas por dia?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente irritação quando sua música é interrompida?",
+      "Com que frequência você costuma usar o Spotify/AMD durante reuniões familiares, aulas e/ou trabalho?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você ouve música enquanto trabalha ou estuda?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você paga por serviços de streaming de música?",
+      "Com que frequência você costuma usar o Spotify/AMD na rua ou em transportes públicos?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo ouvindo podcasts ou audiobooks?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente dependência emocional da música?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você compartilha músicas nas redes sociais?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você tem dificuldade para ouvir música ao vivo sem fones?",
+      "Com que frequência você costuma usar o Spotify/AMD para pegar no sono?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você dedica muito tempo a ouvir música offline?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você sente culpa por gastar muito tempo ouvindo música?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Com que frequência você usa música para motivar exercícios?",
-    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
-    values: [0, 1, 2],
-  },
-  {
-    question: "Você segue artistas obsessivamente nas redes?",
+      "Com que frequência você costuma usar o Spotify/AMD para não ter a sensação de estar só?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Com que frequência você passa muito tempo organizando suas playlists?",
+      "Com que frequência você costuma se distrair de suas atividades, ou do mundo real, ouvindo música no Spotify/AMD?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
     question:
-      "Você sente ansiedade ao pensar em perder acesso ao seu app de música?",
+      "Com que frequência você costuma usar o Spotify/AMD com o som mais alto que o indicado?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
-    question: "Com que frequência você ouve a mesma música repetidamente?",
+    question:
+      "Com que frequência você costuma usar o Spotify/AMD com os fones de ouvido?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
   {
-    question: "Você usa música para lidar com solidão?",
+    question:
+      'Com que frequência você costuma escutar "zumbidos" após o uso do Spotify/AMD com os fones de ouvido?',
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma criar listas de músicas no Spotify/AMD?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma compartilhar listas de músicas criadas no Spotify/AMD?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma se sentir valorizado quando alguém curte suas listas de músicas do Spotify/AMD?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma acompanhar as listas de músicas que seus colegas estão ouvindo no Spotify/AMD?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma conversar com colegas sobre Spotify/AMD?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma pesquisar novas bandas, artistas e tendências musicais no Spotify/AMD?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma buscar outras funções do aplicativo Spotify/AMD que não seja somente ouvir música?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma usar o Spotify/AMD conectado à internet?",
+    options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
+    values: [0, 1, 2],
+  },
+  {
+    question:
+      "Com que frequência você costuma procurar por listas de músicas patrocinadas no Spotify/AMD?",
     options: ["Nunca / Raramente", "Frequentemente", "Sempre"],
     values: [0, 1, 2],
   },
@@ -465,6 +447,8 @@ const quizzes = {
   depressao: depressaoQuestions,
   spotify: spotifyQuestions,
 };
+
+// Commit 2: Implementa lógica principal do quiz (exibição, navegação, progresso e cálculo de pontuação)
 
 let quizQuestions = [];
 
@@ -560,11 +544,14 @@ function calculateScore() {
   localStorage.setItem("userAnswers", JSON.stringify(userAnswers));
 }
 
+// Commit 3: Adiciona recursos complementares (dark mode, formulários, animações, slides e interações de UI)
+
 function displayResults() {
   if (scoreElement && scoreFill && recommendationsElement) {
     const score = localStorage.getItem("quizScore");
-    if (score) {
-      const maxScore = 40;
+    const selectedQuiz = localStorage.getItem("selectedQuiz");
+    if (score && selectedQuiz) {
+      const maxScore = quizzes[selectedQuiz].length * 2;
       scoreElement.textContent = `${score}/${maxScore}`;
       const scorePercentage = (score / maxScore) * 100;
       scoreFill.style.width = `${scorePercentage}%`;
@@ -754,3 +741,94 @@ function showAllQuestions(questions) {
   submitBtn.textContent = "Finalizar";
   form.appendChild(submitBtn);
 }
+
+// Commit 4: Otimiza performance, adiciona melhorias visuais e corrige bugs menores (scroll, animações, responsividade e manipulação de eventos)
+
+document.addEventListener("DOMContentLoaded", function () {
+  const quizButtons = document.querySelectorAll(".quiz-btn");
+  quizButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const quizType = this.dataset.quiz;
+      selectQuiz(quizType);
+    });
+  });
+  const quizCards = document.querySelectorAll(".quiz-card");
+  quizCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      const quizType = this.dataset.quiz;
+      selectQuiz(quizType);
+    });
+  });
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener("click", nextQuestion);
+    prevBtn.addEventListener("click", prevQuestion);
+  }
+  if (window.location.pathname.includes("resultados.html")) {
+    displayResults();
+  }
+  if (saveReflectionBtn) {
+    saveReflectionBtn.addEventListener("click", saveReflection);
+  }
+  if (contactForm) {
+    contactForm.addEventListener("submit", handleFormSubmission);
+  }
+  const quizForm = document.getElementById("quiz-form");
+  if (quizForm) {
+    quizForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(quizForm);
+      const answers = [];
+      for (let i = 0; i < quizQuestions.length; i++) {
+        const value = formData.get(`question-${i}`);
+        answers.push(parseInt(value));
+      }
+      totalScore = answers.reduce((sum, answer) => sum + answer, 0);
+      localStorage.setItem("quizScore", totalScore);
+      localStorage.setItem("userAnswers", JSON.stringify(answers));
+      window.location.href = "resultados.html";
+    });
+  }
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", toggleDarkMode);
+  }
+  loadDarkModePreference();
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = this.getAttribute("href");
+      smoothScroll(target);
+    });
+  });
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closePopup);
+  }
+  window.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+
+  if (document.querySelector(".quiz-section")) {
+    initQuiz();
+  }
+  if (slides.length > 0) {
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000);
+  }
+  window.addEventListener("scroll", function () {
+    changeMenuOnScroll();
+    animateOnScroll();
+  });
+  const buttons = document.querySelectorAll(
+    "button, .btn-primary, .btn-secondary"
+  );
+  buttons.forEach((button) => {
+    button.addEventListener("mouseenter", function () {
+      this.style.transform = "scale(1.05)";
+    });
+    button.addEventListener("mouseleave", function () {
+      this.style.transform = "scale(1)";
+    });
+  });
+});
