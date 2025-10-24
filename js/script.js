@@ -559,3 +559,198 @@ function calculateScore() {
   localStorage.setItem("quizScore", totalScore);
   localStorage.setItem("userAnswers", JSON.stringify(userAnswers));
 }
+
+function displayResults() {
+  if (scoreElement && scoreFill && recommendationsElement) {
+    const score = localStorage.getItem("quizScore");
+    if (score) {
+      const maxScore = 40;
+      scoreElement.textContent = `${score}/${maxScore}`;
+      const scorePercentage = (score / maxScore) * 100;
+      scoreFill.style.width = `${scorePercentage}%`;
+
+      let recommendations = "";
+      if (score <= maxScore * 0.3) {
+        recommendations = `
+                    <h4>Excelente! Você tem hábitos muito saudáveis nesta área.</h4>
+                    <ul>
+                        <li>Continue mantendo o equilíbrio.</li>
+                        <li>Compartilhe suas práticas com outros.</li>
+                        <li>Considere ajudar outros a adotarem hábitos similares.</li>
+                    </ul>
+                `;
+      } else if (score <= maxScore * 0.5) {
+        recommendations = `
+                    <h4>Boa! Seus hábitos são relativamente saudáveis.</h4>
+                    <ul>
+                        <li>Reduza ligeiramente o uso antes de dormir.</li>
+                        <li>Estabeleça limites mais claros.</li>
+                        <li>Incorpore mais atividades offline.</li>
+                    </ul>
+                `;
+      } else if (score <= maxScore * 0.7) {
+        recommendations = `
+                    <h4>Atenção! Há espaço para melhorias.</h4>
+                    <ul>
+                        <li>Implemente períodos de "desconexão".</li>
+                        <li>Desative notificações não essenciais.</li>
+                        <li>Pratique mindfulness.</li>
+                    </ul>
+                `;
+      } else {
+        recommendations = `
+                    <h4>Cuidado! Pode estar afetando sua saúde.</h4>
+                    <ul>
+                        <li>Considere um detox completo.</li>
+                        <li>Busque ajuda profissional se sentir dependente.</li>
+                        <li>Reduza drasticamente e aumente atividades offline.</li>
+                    </ul>
+                `;
+      }
+      recommendationsElement.innerHTML = recommendations;
+    }
+  }
+}
+
+function saveReflection() {
+  const reflection = reflectionText.value;
+  if (reflection.trim()) {
+    localStorage.setItem("dailyReflection", reflection);
+    showPopup("Reflexão salva com sucesso!");
+    reflectionText.value = "";
+  } else {
+    showPopup("Por favor, escreva algo antes de salvar.");
+  }
+}
+
+function showPopup(message) {
+  popupMessage.textContent = message;
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  const isDarkMode = document.body.classList.contains("dark-mode");
+  localStorage.setItem("darkMode", isDarkMode);
+  darkModeToggle.innerHTML = isDarkMode
+    ? '<i class="fas fa-sun"></i>'
+    : '<i class="fas fa-moon"></i>';
+}
+
+function loadDarkModePreference() {
+  const darkMode = localStorage.getItem("darkMode") === "true";
+  if (darkMode) {
+    document.body.classList.add("dark-mode");
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+}
+
+function smoothScroll(target) {
+  const element = document.querySelector(target);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+function handleFormSubmission(e) {
+  e.preventDefault();
+  const formData = new FormData(contactForm);
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message");
+
+  if (name && email && message) {
+    showPopup("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+    contactForm.reset();
+  } else {
+    showPopup("Por favor, preencha todos os campos.");
+  }
+}
+
+let currentSlide = 0;
+const slides = document.querySelectorAll(".media-item");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? "block" : "none";
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+function changeMenuOnScroll() {
+  const header = document.querySelector("header");
+  if (window.scrollY > 100) {
+    header.style.backgroundColor = "rgba(44, 62, 80, 0.9)";
+  } else {
+    header.style.backgroundColor = "#2c3e50";
+  }
+}
+
+function animateOnScroll() {
+  const elements = document.querySelectorAll(
+    ".feature-item, .practice-item, .team-member, .quiz-card, .media-item"
+  );
+  elements.forEach((element) => {
+    const elementTop = element.getBoundingClientRect().top;
+    const elementBottom = element.getBoundingClientRect().bottom;
+    if (elementTop < window.innerHeight && elementBottom > 0) {
+      element.classList.add("fade-in");
+    }
+  });
+}
+
+function selectQuiz(quizType) {
+  quizQuestions = quizzes[quizType];
+  localStorage.setItem("selectedQuiz", quizType);
+  document.getElementById("quiz-selection").style.display = "none";
+  const quizTitleElement = document.getElementById("quiz-title");
+  if (quizTitleElement) {
+    quizTitleElement.textContent = quizTitles[quizType];
+    quizTitleElement.style.display = "block";
+  }
+  showAllQuestions(quizQuestions);
+  document.getElementById("quiz-form").style.display = "block";
+}
+
+function showAllQuestions(questions) {
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+  questions.forEach((question, index) => {
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    questionDiv.innerHTML = `
+      <h3>${index + 1}. ${question.question}</h3>
+      <div class="options">
+        ${question.options
+          .map(
+            (option, optIndex) => `
+          <label>
+            <input type="radio" name="question-${index}" value="${question.values[optIndex]}" required>
+            ${option}
+          </label>
+        `
+          )
+          .join("")}
+      </div>
+    `;
+    form.appendChild(questionDiv);
+  });
+  const submitBtn = document.createElement("button");
+  submitBtn.type = "submit";
+  submitBtn.className = "btn-nav";
+  submitBtn.textContent = "Finalizar";
+  form.appendChild(submitBtn);
+}
