@@ -551,42 +551,132 @@ function displayResults() {
       scoreFill.style.width = `${scorePercentage}%`;
 
       let recommendations = "";
-      if (score <= maxScore * 0.3) {
-        recommendations = `
-                    <h4>Excelente! Você tem hábitos muito saudáveis nesta área.</h4>
-                    <ul>
-                        <li>Continue mantendo o equilíbrio.</li>
-                        <li>Compartilhe suas práticas com outros.</li>
-                        <li>Considere ajudar outros a adotarem hábitos similares.</li>
-                    </ul>
-                `;
-      } else if (score <= maxScore * 0.5) {
-        recommendations = `
-                    <h4>Boa! Seus hábitos são relativamente saudáveis.</h4>
-                    <ul>
-                        <li>Reduza ligeiramente o uso antes de dormir.</li>
-                        <li>Estabeleça limites mais claros.</li>
-                        <li>Incorpore mais atividades offline.</li>
-                    </ul>
-                `;
-      } else if (score <= maxScore * 0.7) {
-        recommendations = `
-                    <h4>Atenção! Há espaço para melhorias.</h4>
-                    <ul>
-                        <li>Implemente períodos de "desconexão".</li>
-                        <li>Desative notificações não essenciais.</li>
-                        <li>Pratique mindfulness.</li>
-                    </ul>
-                `;
+      if (selectedQuiz === "celular") {
+        if (score <= 2) {
+          recommendations = `
+            <h4>Saudável</h4>
+            <p>Você costuma utilizar o Telefone Celular de uma maneira natural, não apresenta sinais de uso excessivo e tem total controle sobre a sua utilização no dia a dia.</p>
+          `;
+        } else if (score <= 12) {
+          recommendations = `
+            <h4>Leve</h4>
+            <p>Você apresenta sinais de uma possível dependência ao Telefone Celular em nível leve. Começa a ter problemas ocasionais devido ao início do uso excessivo do Telefone Celular em certas situações. Pode vir a apresentar impactos futuros na sua vida pessoal, social, familiar, académica ou profissional por ficar utilizando o Telefone Celular com maior frequência do que o necessário no cotidiano. Fique atento para que o uso demasiado do Telefone Celular não venha a trazer prejuízos para a sua qualidade de vida.</p>
+          `;
+        } else if (score <= 22) {
+          recommendations = `
+            <h4>Moderado</h4>
+            <p>Você apresenta sinais de uma possível dependência do Telefone Celular em nível moderado. Começa a ter problemas frequentes devido ao uso excessivo do Telefone Celular em certas situações. Deve considerar os impactos presentes relativos à sua vida pessoal, social, familiar, acadêmica ou profissional por ficar utilizando o Telefone Celular no dia a dia com maior intensidade do que o recomendado. Deve aprender a lidar com o Telefone Celular de modo mais consciente para prevenir problemas futuros (físicos e emocionais), relacionados ao uso diário e por muitas horas do aparelho.</p>
+          `;
+        } else {
+          recommendations = `
+            <h4>Grave</h4>
+            <p>A utilização do Telefone Celular já está causando problemas significativos em algum aspecto da sua vida pessoal, social, familiar, acadêmica ou profissional em nível grave. Você deve avaliar as consequências dos impactos e prejuízos físicos e emocionais que estão ocorrendo no presente. O uso abusivo e persistente do Telefone Celular no seu cotidiano vem comprometendo de modo significativo a sua qualidade de vida. Recomendamos procurar uma orientação através de ajuda profissional em centros especializados.</p>
+          `;
+        }
+      } else if (selectedQuiz === "tecnologias") {
+        if (score <= 8) {
+          recommendations = `
+            <h4>Saudável</h4>
+            <p>Você é um utilizador sem sinais de uso abusivo do CTCTO no seu cotidiano e com total controle sobre a sua utilização.</p>
+          `;
+        } else if (score <= 18) {
+          recommendations = `
+            <h4>Leve</h4>
+            <p>Você apresenta sinais de estar usando as tecnologias do CTCTO no cotidiano em nível leve. Pode vir a ter problemas ocasionais devido no início do uso excessivo das tecnologias em certas situações. Pode vir a apresentar impactos futuros na sua qualidade de vida se ficar utilizando o CTCTO com maior frequência do que o necessário. Fique atento para que o uso das tecnologias no seu dia a dia não venha a trazer prejuízos para a sua vida pessoal, social, familiar, profissional ou académica.</p>
+          `;
+        } else if (score <= 28) {
+          recommendations = `
+            <h4>Moderado</h4>
+            <p>Você apresenta sinais de uso alusivo das tecnologias (CTCTO) em nível moderado. Começa a ter problemas frequentes devido ao uso excessivo das tecnologias em certas situações. Deve considerar os impactos hoje presentes na sua vida pessoal, social, familiar, profissional e académica por ficar utilizando o CTCTO com maior intensidade no seu cotidiano do que o recomendado. Deve aprender a lidar com as tecnologias de modo mais consciente.</p>
+          `;
+        } else {
+          recommendations = `
+            <h4>Grave</h4>
+            <p>A utilização do CTCTO em excesso no seu cotidiano. possivelmente já deve estar causando problemas significativos na sua vida pessoal, social, familiar, profissional e acadêmica em nível grave. Você deve procurar avaliar as consequências destes impactos, que podem também estar causando prejuízos físicos e/ou emocionais e comprometendo a sua qualidade de vida. Recomendamos procurar orientação através de ajuda profissional em centros especializados.</p>
+          `;
+        }
+      } else if (selectedQuiz === "depressao") {
+        if (score <= 4) {
+          recommendations = `
+            <h4>Saudável</h4>
+            <p>Você é um utilizador sem sinais de uso excessivo do CTCTO relacionado à depressão e com total controle sobre a sua utilização.</p>
+          `;
+        } else if (score <= 14) {
+          recommendations = `
+            <h4>Leve</h4>
+            <p>Você apresenta sinais de um possível uso excessivo do CTCTO relacionado à depressão em nível leve. Começa a ter problemas ocasionais devido ao início do uso demasiadamente do CTCTO relacionado à depressão em certas situações. Pode vir a apresentar impactos na sua vida pessoal, social, familiar, profissional ou académica por ficar utilizando o CTCTO relacionado à depressão com maior frequência do que o necessário. Fique atento para que o uso abusivo do CTCTO não traga prejuízos para a sua qualidade de vida.</p>
+          `;
+        } else if (score <= 24) {
+          recommendations = `
+            <h4>Moderado</h4>
+            <p>Você apresenta sinais de uma possível dependência do CTCTO relacionado à depressão em nível moderado. Começa a ter problemas frequentes devido ao uso excessivo do CTCTO relacionado à depressão em certas situações. Deve considerar os impactos na sua vida pessoal, social, familiar, profissional ou acadêmica por ficar utilizando o CTCTO relacionado à depressão com maior intensidade do que o recomendado. Deve aprender a lidar com o CTCTO de modo mais consciente.</p>
+          `;
+        } else {
+          recommendations = `
+            <h4>Grave</h4>
+            <p>A utilização do CTCTO relacionado à depressão está causando problemas significativos na sua vida pessoal, social, familiar, profissional ou académica em nível grave. Deve avaliar as consequências destes impactos que podem estar causando prejuízos nestas diversas áreas, comprometendo de modo significativo a sua qualidade de vida. Recomendamos procurar uma orientação através de ajuda profissional em centros especializados.</p>
+          `;
+        }
+      } else if (selectedQuiz === "spotify") {
+        if (score <= 10) {
+          recommendations = `
+            <h4>Saudável</h4>
+            <p>Você costuma acessar o Spotify e Aplicativos de Música Digital por lazer e diversão, porém sem sinais de uso excessivo ou dependência, com total controle sobre a sua utilização.</p>
+          `;
+        } else if (score <= 20) {
+          recommendations = `
+            <h4>Leve</h4>
+            <p>Você apresenta sinais de uma possível dependência de Spotify e Aplicativos de Música Digital em nível leve. Passível de problemas ocasionais devido ao início do uso excessivo dessas ferramentas em certas situações. No future pode sofrer impactos na sua vida por uso mais frequente do que o indicado. Fique atente para que o uso abusivo não traga prejuízos para a sua saúde (física e mental) e qualidade de vida, bem como nos aspectos pessoal, social, familiar, profissional acadêmico.</p>
+          `;
+        } else if (score <= 30) {
+          recommendations = `
+            <h4>Moderado</h4>
+            <p>Você apresenta sinais de uma possível dependência do Spotify e Aplicativos de Música Digital em nível moderado. Começa a ter problemas frequentes devido ao uso excessivo em certas situações. Deve ficar atento aos possíveis prejuízos na sua audição, vida pessoal, social, familiar, profissional e acadêmica, que podem surgir em consequência de ouvir música com mais intensidade de que o recomendado. Deve aprender a lidar com o Spotify e Aplicativos de Música Digital de modo mais consciente.</p>
+          `;
+        } else {
+          recommendations = `
+            <h4>Grave</h4>
+            <p>Neste momento, a dependência do Spotify e Aplicativos de Música Digital está causando problemas significativos na sua vida em nível grave. Deve avaliar os impactos, as consequências físicas e emocionais e os prejuízos nas áreas pessoal, social, familiar, profissional e acadêmica. O excesso de interação com essa plataforma costuma comprometer de modo significativo a qualidade de vida do sujeito. Recomendamos procurar uma orientação através de ajuda profissional em centros especializados.</p>
+          `;
+        }
       } else {
-        recommendations = `
-                    <h4>Cuidado! Pode estar afetando sua saúde.</h4>
-                    <ul>
-                        <li>Considere um detox completo.</li>
-                        <li>Busque ajuda profissional se sentir dependente.</li>
-                        <li>Reduza drasticamente e aumente atividades offline.</li>
-                    </ul>
-                `;
+        if (score <= maxScore * 0.3) {
+          recommendations = `
+                      <h4>Excelente! Você tem hábitos muito saudáveis nesta área.</h4>
+                      <ul>
+                          <li>Continue mantendo o equilíbrio.</li>
+                          <li>Compartilhe suas práticas com outros.</li>
+                          <li>Considere ajudar outros a adotarem hábitos similares.</li>
+                      </ul>
+                  `;
+        } else if (score <= maxScore * 0.5) {
+          recommendations = `
+                      <h4>Boa! Seus hábitos são relativamente saudáveis.</h4>
+                      <ul>
+                          <li>Reduza ligeiramente o uso antes de dormir.</li>
+                          <li>Estabeleça limites mais claros.</li>
+                          <li>Incorpore mais atividades offline.</li>
+                      </ul>
+                  `;
+        } else if (score <= maxScore * 0.7) {
+          recommendations = `
+                      <h4>Atenção! Há espaço para melhorias.</h4>
+                      <ul>
+                          <li>Implemente períodos de "desconexão".</li>
+                          <li>Desative notificações não essenciais.</li>
+                          <li>Pratique mindfulness.</li>
+                      </ul>
+                  `;
+        } else {
+          recommendations = `
+                      <h4>Cuidado! Pode estar afetando sua saúde.</h4>
+                      <ul>
+                          <li>Considere um detox completo.</li>
+                          <li>Busque ajuda profissional se sentir dependente.</li>
+                          <li>Reduza drasticamente e aumente atividades offline.</li>
+                      </ul>
+                  `;
+        }
       }
       recommendationsElement.innerHTML = recommendations;
     }
