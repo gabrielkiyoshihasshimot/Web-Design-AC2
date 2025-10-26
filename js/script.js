@@ -823,4 +823,12 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.transform = "scale(1)";
     });
   });
+
+  const hamburger = document.getElementById("hamburger");
+  const navLinksMenu = document.getElementById("nav-links");
+  if (hamburger && navLinksMenu) {
+    hamburger.addEventListener("click", function () {
+      navLinksMenu.classList.toggle("active");
+    });
+  }
 });
